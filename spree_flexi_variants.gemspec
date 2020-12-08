@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  spree_version = '>= 3.7.0', '< 4.0'
+  spree_version = '>= 3.7.0', '< 5.0'
 
   s.add_dependency('carrierwave')
   s.add_dependency('mini_magick')

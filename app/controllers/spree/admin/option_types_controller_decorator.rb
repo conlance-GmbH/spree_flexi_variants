@@ -1,7 +1,9 @@
 module Spree
-  Admin::OptionTypesController.class_eval do
-    # not sure if I have to repeat the 'before_action' for the original option_types account
-    before_action :load_product_decorator, only: [:select_ad_hoc, :available_ad_hoc]
+  module Admin::OptionTypesControllerDecorator
+    def self.prepended(base)
+      # not sure if I have to repeat the 'before_action' for the original option_types account
+      base.before_action :load_product_decorator, only: [:select_ad_hoc, :available_ad_hoc]
+    end
 
     def available_ad_hoc
       set_available_ad_hoc_option_types
@@ -39,3 +41,5 @@ module Spree
 
   end
 end
+
+Spree::Admin::OptionTypesController.prepend Spree::Admin::OptionTypesControllerDecorator

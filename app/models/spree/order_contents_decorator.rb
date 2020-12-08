@@ -1,5 +1,5 @@
 module Spree
-  OrderContents.class_eval do
+  module OrderContentsDecorator
 
     private
     #this whole thing needs a refactor!
@@ -45,3 +45,5 @@ module Spree
     end
   end
 end
+
+Spree::Order.prepend Spree::OrderContentsDecorator

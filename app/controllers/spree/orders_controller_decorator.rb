@@ -1,10 +1,10 @@
 module Spree
-  OrdersController.class_eval do
-
-    include ProductCustomizations
-    include AdHocUtils
-
-    before_action :set_option_params_values, only: [:populate]
+  module OrdersControllerDecorator
+    def self.prepended(base)
+      base.include ProductCustomizations
+      base.include AdHocUtils
+      base.before_action :set_option_params_values, only: [:populate]
+    end
 
     private
 
@@ -17,3 +17,5 @@ module Spree
 
   end
 end
+
+Spree::OrdersController.prepend Spree::OrdersControllerDecorator
