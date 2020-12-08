@@ -40,9 +40,12 @@
       Spree.ready(function() {
 
         // watch for variant changes
-        $("#product-variants input[type='radio']").change(function() {
-          updatePrice();
-        });
+        // not needed - normal variants are good for now
+        // -> creates NaN on normal variants
+
+        // $("#product-variants input[type='radio']").change(function() {
+        //   updatePrice();
+        // });
 
         // 'watch' our configurations
         $('.ad-hoc-option-select').change(function() {
