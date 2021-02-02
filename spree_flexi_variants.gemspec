@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  spree_version = '>= 3.7.0', '< 5.0'
+  spree_version = '>= 3.2.0', '< 5.0'
 
   s.add_dependency('carrierwave')
   s.add_dependency('mini_magick')
@@ -32,10 +32,10 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'sass-rails'
   s.add_development_dependency 'selenium-webdriver'
   s.add_development_dependency 'shoulda-matchers'
-  s.add_development_dependency 'simplecov', '~> 0.9.0'
+  s.add_development_dependency 'simplecov'
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'launchy'
-  #remove later
+  # remove later
   s.add_development_dependency 'better_errors'
   s.add_development_dependency 'binding_of_caller'
   s.add_development_dependency 'xray-rails'
