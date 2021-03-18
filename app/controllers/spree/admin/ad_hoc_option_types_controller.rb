@@ -19,21 +19,25 @@ module Spree
       # remove the entire exclusion
       @product = @ad_hoc_option_type.product
       @ad_hoc_option_type.destroy
-      redirect_to selected_admin_product_ad_hoc_option_types_url(@product), notice: I18n.t("spree.notice_messages.option_type_removed")
+      redirect_to selected_admin_product_ad_hoc_option_types_url(@product),
+                  notice: I18n.t('spree.notice_messages.option_type_removed')
     end
 
     protected
+
     def location_after_save
       selected_admin_product_ad_hoc_option_types_url(@ad_hoc_option_type.product)
     end
 
     private
+
     def load_product
       @product = Product.friendly.find(params[:product_id])
     end
 
     def load_available_option_values
-      @available_option_values = @ad_hoc_option_type.option_type.option_values - @ad_hoc_option_type.ad_hoc_option_values.map(&:option_value)
+      @available_option_values =
+        @ad_hoc_option_type.option_type.option_values - @ad_hoc_option_type.ad_hoc_option_values.map(&:option_value)
     end
   end
 end
