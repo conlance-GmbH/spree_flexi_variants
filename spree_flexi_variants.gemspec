@@ -17,29 +17,32 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   spree_version = '>= 3.2.0', '< 5.0'
+  s.add_dependency 'spree_api', spree_version
+  s.add_dependency 'spree_backend', spree_version
+  s.add_dependency 'spree_core', spree_version
+  s.add_dependency 'spree_extension'
 
   s.add_dependency('carrierwave')
   s.add_dependency('mini_magick')
-  s.add_dependency 'spree', spree_version
 
-  s.add_development_dependency 'capybara',           '~> 2.1'
-  s.add_development_dependency 'coffee-rails'
+  s.add_development_dependency 'capybara', '~> 2.1'
+  # s.add_development_dependency 'coffee-rails'
   s.add_development_dependency 'coveralls'
   s.add_development_dependency 'database_cleaner',   '~> 1.0.1'
   s.add_development_dependency 'factory_girl_rails', '~> 4.2'
   s.add_development_dependency 'ffaker'
-  s.add_development_dependency 'rspec-rails',        '~> 2.13'
+  s.add_development_dependency 'launchy'
+  s.add_development_dependency 'rspec-rails', '~> 2.13'
   s.add_development_dependency 'sass-rails'
   s.add_development_dependency 'selenium-webdriver'
   s.add_development_dependency 'shoulda-matchers'
   s.add_development_dependency 'simplecov'
   s.add_development_dependency 'sqlite3'
-  s.add_development_dependency 'launchy'
   # remove later
   s.add_development_dependency 'better_errors'
   s.add_development_dependency 'binding_of_caller'
-  s.add_development_dependency 'xray-rails'
-  s.add_development_dependency 'quiet_assets'
   s.add_development_dependency 'jazz_fingers'
+  # s.add_development_dependency 'quiet_assets'
+  # s.add_development_dependency 'xray-rails'
 
 end
