@@ -1,6 +1,6 @@
 module Spree
   module OrderMailerDecorator
-    helper Spree::BaseHelper
+    include Spree::BaseHelper
   end
 end
 
