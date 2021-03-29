@@ -1,6 +1,6 @@
 module Spree
   module ShipmentMailerDecorator
-    # helper Spree::BaseHelper
+    helper Spree::BaseHelper
   end
 end
 

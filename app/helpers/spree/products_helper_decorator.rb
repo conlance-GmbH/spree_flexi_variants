@@ -13,6 +13,10 @@ module Spree
       h
     end
 
+    def calculator_name(product_customization_type)
+      product_customization_type.calculator.class.name.demodulize.underscore rescue ""
+    end
+
     private
 
     def validation_attributes(option)
@@ -84,10 +88,6 @@ module Spree
       else
         "#{ah_ov.option_value.presentation} #{price_change_text(ah_ov)}"
       end
-    end
-
-    def calculator_name(product_customization_type)
-      product_customization_type.calculator.class.name.demodulize.underscore rescue ""
     end
   end
 end
