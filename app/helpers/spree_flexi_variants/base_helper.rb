@@ -1,5 +1,5 @@
-module Spree
-  module ProductsHelperDecorator
+module SpreeFlexiVariants
+  module BaseHelper
 
     require 'json'
 
@@ -15,6 +15,12 @@ module Spree
 
     def calculator_name(product_customization_type)
       product_customization_type.calculator.class.name.demodulize.underscore rescue ""
+    end
+
+    def ad_hoc_option_value_options(ad_hoc_option_values)
+      ad_hoc_option_values.map do |ah_ov|
+        [ad_hoc_option_value_presentation_with_price_modifier(ah_ov), ah_ov.id.to_s]
+      end
     end
 
     private
@@ -64,12 +70,6 @@ module Spree
       validation_str.join(' ')
     end
 
-    def ad_hoc_option_value_options(ad_hoc_option_values)
-      ad_hoc_option_values.map do |ah_ov|
-        [ad_hoc_option_value_presentation_with_price_modifier(ah_ov), ah_ov.id.to_s]
-      end
-    end
-
     def price_change_text(ah_ov)
       plus_or_minus = ''
 
@@ -92,4 +92,3 @@ module Spree
   end
 end
 
-::Spree::ProductsHelper.prepend Spree::ProductsHelperDecorator
